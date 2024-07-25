@@ -35,7 +35,9 @@
 <h3 align="center">Robotics Question Answering LLM App</h3>
 
   <p align="center">
-    This repo includes the source code for the developing a Question answering LLM app using the  OpenAI API,Streamlit and Langchain. The Milvus lite database is used to store the generated RAPTOR index from three robotics textbooks given in the reference section. You can access the app with your own OpenAI API key with this  link to the Stream lit community cloud:[App](https://b4vyas3x2tdguufofunsrj.streamlit.app/)
+    This repo includes the source code for the developing a Question answering LLM app using the  OpenAI API,Streamlit and Langchain. The Milvus lite database is used to store the generated RAPTOR index from three robotics textbooks given in the reference section. You can access the app with your own OpenAI API key with this  link to the Stream lit community cloud:
+    ![App](https://b4vyas3x2tdguufofunsrj.streamlit.app/)
+    ![Streamlit Robotics QA app](ezgif.com-video-to-gif-converter.gif)
 
   </p>
 </div>
