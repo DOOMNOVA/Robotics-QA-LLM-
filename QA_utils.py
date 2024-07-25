@@ -64,7 +64,7 @@ def consolidate_metadata(source_documents):
 embd_model = HuggingFaceEmbeddings(model_name='multi-qa-MiniLM-L6-cos-v1')
 
 #Initialize the Milvus vector store 
-vectorstore = Milvus(embedding=embd_model,
+vectorstore = Milvus(embedding_function=embd_model,
                     connection_args={"uri":"Milvus_db/milvus_robo_qa.db"},
                     collection_name="robotics_textbooks",
                     )
