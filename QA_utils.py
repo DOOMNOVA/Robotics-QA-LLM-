@@ -140,9 +140,8 @@ def stepback_prompting_expansion(query,api_key):
     llm_model = "gpt-4o-mini"
     prompt_model= ChatOpenAI(model_name= llm_model,temperature=0,openai_api_key = api_key)
     question_gen = prompt | prompt_model | StrOutputParser()
-    few_shot_ques = question_gen.invoke({"question":query})
-    
-    return few_shot_ques
+
+    return question_gen.invoke({"question":query})
 
 
 def init_QA_chain(api_key):
@@ -159,20 +158,19 @@ def init_QA_chain(api_key):
 
     # question answering template
     QA_template = """Answer the question about the field of robotics based only on the given context.
-    If you don't know the answer, just say that you don't know, don't try to make up an answer.
-    :
-    {context}
-    Question: {question}
-    Answer:"""
+        If you don't know the answer, just say that you don't know, don't try to make up an answer.
+        :
+        {context}
+        Question: {question}
+        Answer:"""
 
     #qa chain prompt
     QA_chain_prompt = PromptTemplate.from_template(QA_template)
     
     #define the QA chain
-    QA_chain = RetrievalQA.from_chain_type(QA_llm,retriever= compression_retriever,
+    return  RetrievalQA.from_chain_type(QA_llm,retriever= compression_retriever,
                                        return_source_documents=True, verbose=False,
                                      chain_type_kwargs={"prompt":QA_chain_prompt})
-    return QA_chain
 
 def make_output(query,api_key):
     """
