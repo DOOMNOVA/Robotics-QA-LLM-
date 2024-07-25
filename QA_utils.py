@@ -189,6 +189,7 @@ def make_output(query,api_key):
     answer = QA_chain.invoke({"query": expanded_query})
     
     result = answer["result"]
+    print(answer)
     
     metadata = consolidate_metadata(answer["documents"])
     
