@@ -14,7 +14,7 @@ from langchain.retrievers.document_compressors import FlashrankRerank
 from langchain_core.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
 import pickle
 from langchain.chains import RetrievalQA
-
+from collections import defaultdict
 
 
 
@@ -189,8 +189,7 @@ def make_output(query,api_key):
     answer = QA_chain.invoke({"query": expanded_query})
     
     result = answer["result"]
-    print(answer)
     
-    metadata = consolidate_metadata(answer["documents"])
+    metadata = consolidate_metadata(answer["source_documents"])
     
     return result, metadata
