@@ -128,7 +128,7 @@ def stepback_prompting_expansion(query,api_key):
         [
             (
                 "system",
-                """You are an expert at world knowledge. Your task is to step back and paraphrase a question to a more generic step-back question, which is easier to answer. Here are a few examples:""",
+                """You are an expert at world knowledge and robotics. Your task is to step back and paraphrase a question to a more generic step-back question, which is easier to answer. Here are a few examples:""",
             ),
             # Few shot examples
             few_shot_prompt,
