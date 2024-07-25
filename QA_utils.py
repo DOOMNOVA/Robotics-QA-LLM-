@@ -183,7 +183,6 @@ def make_output(query,api_key):
 
     :return: The result and metadata from the QA chain.
     """
-
    
     expanded_query = stepback_prompting_expansion(query,api_key)
     
