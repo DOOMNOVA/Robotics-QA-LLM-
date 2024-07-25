@@ -1,7 +1,8 @@
 import streamlit as st
-from QA_utils import make_output
-import openai
 import langchain
+import openai
+from QA_utils import make_output
+
 
 
 st.title('🦜🔗 Robotics QA Bot 🦜🔗')
