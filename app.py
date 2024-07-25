@@ -10,21 +10,15 @@ st.title('🦜🔗 Robotics QA Bot 🦜🔗')
 
 # Function to validate OpenAI API key
 def validate_openai_api_key(api_key):
+    client = openai.OpenAI(api_key = api_key)
     try:
-        openai.api_key = api_key
-        # Make a test call to validate the API key
-        openai.Engine.list()
+       client.models.list()
+    # Make a test call to validate the API key
+    except openai.AuthenticationError:
+        return False
+    else:
         return True
-    except openai.error.AuthenticationError:
-        return False
-    except openai.error.OpenAIError as e:
-        st.error(f"OpenAI API error occurred: {e}")
-        return False
-    except Exception as e:
-        st.error(f"An unexpected error occurred: {e}")
-        return False
-
-openai_api_key = st.text_input("Enter OpenAI API Key", type='password')
+openai_api_key = st.text_input("Enter OpenAI API Key to access GPT-4o mini", type='password')
 
 if openai_api_key:
     if validate_openai_api_key(openai_api_key):
