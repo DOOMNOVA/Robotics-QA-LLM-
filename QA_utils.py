@@ -169,7 +169,7 @@ def init_QA_chain(api_key):
     
     #define the QA chain
     return  RetrievalQA.from_chain_type(QA_llm,retriever= compression_retriever,
-                                       return_source_documents=True, verbose=False,
+                                       return_source_documents=True,
                                      chain_type_kwargs={"prompt":QA_chain_prompt})
 
 def make_output(query,api_key):
